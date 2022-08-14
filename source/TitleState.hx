@@ -100,7 +100,7 @@ class TitleState extends MusicBeatState
 		#end
 		
 		#if (desktop && MODS_ALLOWED)
-		var path = "mods/" + Paths.currentModDirectory + "/images/gfDanceTitle.json";
+		var path = SUtil.getPath() + "mods/" + Paths.currentModDirectory + "/images/gfDanceTitle.json";
 		//trace(path, FileSystem.exists(path));
 		if (!FileSystem.exists(path)) {
 			path = SUtil.getPath() + "mods/images/gfDanceTitle.json";
@@ -112,7 +112,7 @@ class TitleState extends MusicBeatState
 		//trace(path, FileSystem.exists(path));
 		titleJSON = Json.parse(File.getContent(path));
 		#else
-		var path = SUtil.getPath() +  Paths.getPreloadPath("images/gfDanceTitle.json");
+		var path = Paths.getPreloadPath("images/gfDanceTitle.json");
 		titleJSON = Json.parse(Assets.getText(path)); 
 		#end
 		
