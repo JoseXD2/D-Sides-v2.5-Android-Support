@@ -84,7 +84,7 @@ class TitleState extends MusicBeatState
 
 		#if MODS_ALLOWED
 		// Just to load a mod on start up if ya got one. For mods that change the menu music and bg
-		if (FileSystem.exists("modsList.txt")){
+		if (FileSystem.exists(SUtil.getPath() + "modsList.txt")){
 			
 			var list:Array<String> = CoolUtil.listFromString(File.getContent("modsList.txt"));
 			var foundTheTop = false;
@@ -103,16 +103,16 @@ class TitleState extends MusicBeatState
 		var path = "mods/" + Paths.currentModDirectory + "/images/gfDanceTitle.json";
 		//trace(path, FileSystem.exists(path));
 		if (!FileSystem.exists(path)) {
-			path = "mods/images/gfDanceTitle.json";
+			path = SUtil.getPath() + "mods/images/gfDanceTitle.json";
 		}
 		//trace(path, FileSystem.exists(path));
 		if (!FileSystem.exists(path)) {
-			path = "assets/images/gfDanceTitle.json";
+			path = SUtil.getPath() + "assets/images/gfDanceTitle.json";
 		}
 		//trace(path, FileSystem.exists(path));
 		titleJSON = Json.parse(File.getContent(path));
 		#else
-		var path = Paths.getPreloadPath("images/gfDanceTitle.json");
+		var path = SUtil.getPath() +  Paths.getPreloadPath("images/gfDanceTitle.json");
 		titleJSON = Json.parse(Assets.getText(path)); 
 		#end
 		
